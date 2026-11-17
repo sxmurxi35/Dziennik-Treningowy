@@ -15,23 +15,26 @@ struct Exercise
 	Set* setsArray;
 
 	void addSet(int reps, float weight);
+	void clearMemory();
 };
 
 class Training
 {
-	public:
-		int trainingId;
-		char trainingDate[11];
-		int exercisesCount;
-		Exercise* exercisesArray;
+public:
+	int trainingId;
+	char trainingDate[11];
+	int exercisesCount;
+	Exercise* exercisesArray;
 
-		void addExercise(const char* exerciseName);
+	void addExercise(const char* exerciseName);
+	void clearMemory();
 };
 
 class TrainingLog {
-	public:
-		int trainingCount;
-		Training* trainingArray;
+public:
+	int trainingsCount;
+	Training* trainingsArray;
 
-		void addTraining(const char* trainingDate);
+	void addTraining(const char* trainingDate);
+	void clearMemory();
 };

@@ -2,10 +2,10 @@
 #include <cstdlib>
 #include <cstring>
 
-void Exercise::addSet(int repsInput, float weightInput){
+void Exercise::addSet(int repsInput, float weightInput) {
 	Set* newSetsArray = (Set*)malloc((setsCount + 1) * sizeof(Set));
 
-	if (newSetsArray != nullptr){
+	if (newSetsArray != nullptr) {
 		for (int i = 0; i < setsCount; i++) {
 			newSetsArray[i] = setsArray[i];
 		}
@@ -24,10 +24,10 @@ void Exercise::addSet(int repsInput, float weightInput){
 
 }
 
-void Training::addExercise(const char* exerciseNameInput){
+void Training::addExercise(const char* exerciseNameInput) {
 	Exercise* newExercisesArray = (Exercise*)calloc(exercisesCount + 1, sizeof(Exercise));
 
-	if (newExercisesArray != nullptr){
+	if (newExercisesArray != nullptr) {
 		for (int i = 0; i < exercisesCount; i++) {
 			newExercisesArray[i] = exercisesArray[i];
 		}
@@ -46,21 +46,53 @@ void Training::addExercise(const char* exerciseNameInput){
 }
 
 void TrainingLog::addTraining(const char* trainingDateInput) {
-	Training* newTrainingsArray = (Training*)calloc(trainingCount + 1, sizeof(Training));
+	Training* newTrainingsArray = (Training*)calloc(trainingsCount + 1, sizeof(Training));
 
 	if (newTrainingsArray != nullptr) {
-		for (int i = 0; i < trainingCount; i++) {
-			newTrainingsArray[i] = trainingArray[i];
+		for (int i = 0; i < trainingsCount; i++) {
+			newTrainingsArray[i] = trainingsArray[i];
 		}
 
-		strcpy(newTrainingsArray[trainingCount].trainingDate, trainingDateInput);
-		newTrainingsArray[trainingCount].trainingId = trainingCount + 1;
+		strcpy(newTrainingsArray[trainingsCount].trainingDate, trainingDateInput);
+		newTrainingsArray[trainingsCount].trainingId = trainingsCount + 1;
 
-		if (trainingArray != nullptr) {
-			free(trainingArray);
+		if (trainingsArray != nullptr) {
+			free(trainingsArray);
 		}
 
-		trainingArray = newTrainingsArray;
-		trainingCount++;
+		trainingsArray = newTrainingsArray;
+		trainingsCount++;
+	}
+}
+
+void Exercise::clearMemory() {
+	if (setsArray != nullptr) {
+		free(setsArray);
+		setsCount = 0;
+		setsArray = nullptr;
+	}
+}
+
+void Training::clearMemory() {
+	if (exercisesArray != nullptr) {
+		for (int i = 0; i < exercisesCount; i++) {
+			exercisesArray[i].clearMemory();
+		}
+
+		free(exercisesArray);
+		exercisesCount = 0;
+		exercisesArray = nullptr;
+	}
+}
+
+void TrainingLog::clearMemory() {
+	if (trainingsArray != nullptr) {
+		for (int i = 0; i < trainingsCount; i++) {
+			trainingsArray[i].clearMemory();
+		}
+
+		free(trainingsArray);
+		trainingsCount = 0;
+		trainingsArray = nullptr;
 	}
 }
