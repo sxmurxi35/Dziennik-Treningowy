@@ -33,6 +33,7 @@ void Training::addExercise(const char* exerciseNameInput){
 		}
 
 		strcpy(newExercisesArray[exercisesCount].exerciseName, exerciseNameInput);
+		newExercisesArray[exercisesCount].exerciseId = exercisesCount + 1;
 
 		if (exercisesArray != nullptr) {
 			free(exercisesArray);
@@ -42,4 +43,24 @@ void Training::addExercise(const char* exerciseNameInput){
 		exercisesCount++;
 	}
 
+}
+
+void TrainingLog::addTraining(const char* trainingDateInput) {
+	Training* newTrainingsArray = (Training*)calloc(trainingCount + 1, sizeof(Training));
+
+	if (newTrainingsArray != nullptr) {
+		for (int i = 0; i < trainingCount; i++) {
+			newTrainingsArray[i] = trainingArray[i];
+		}
+
+		strcpy(newTrainingsArray[trainingCount].trainingDate, trainingDateInput);
+		newTrainingsArray[trainingCount].trainingId = trainingCount + 1;
+
+		if (trainingArray != nullptr) {
+			free(trainingArray);
+		}
+
+		trainingArray = newTrainingsArray;
+		trainingCount++;
+	}
 }

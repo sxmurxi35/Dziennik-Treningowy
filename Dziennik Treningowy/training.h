@@ -27,3 +27,11 @@ class Training
 
 		void addExercise(const char* exerciseName);
 };
+
+class TrainingLog {
+	public:
+		int trainingCount;
+		Training* trainingArray;
+
+		void addTraining(const char* trainingDate);
+};
