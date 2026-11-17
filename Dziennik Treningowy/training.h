@@ -24,4 +24,6 @@ class Training
 		char trainingDate[11];
 		int exercisesCount;
 		Exercise* exercisesArray;
+
+		void addExercise(const char* exerciseName);
 };
