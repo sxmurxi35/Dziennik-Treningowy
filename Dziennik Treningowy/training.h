@@ -13,6 +13,8 @@ struct Exercise
 	char exerciseName[50];
 	int setsCount;
 	Set* setsArray;
+
+	void addSet(int reps, float weight);
 };
 
 class Training
