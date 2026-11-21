@@ -143,7 +143,6 @@
     <ClCompile Include="training.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="log.h" />
     <ClInclude Include="training.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

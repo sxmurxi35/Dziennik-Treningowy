@@ -28,6 +28,7 @@ public:
 
 	void addExercise(const char* exerciseName);
 	void clearMemory();
+	float calculateTrainingVolume();
 };
 
 class TrainingLog {
@@ -37,4 +38,5 @@ public:
 
 	void addTraining(const char* trainingDate);
 	void clearMemory();
+	float calculateVolumeOverall();
 };

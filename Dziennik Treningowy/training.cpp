@@ -96,3 +96,27 @@ void TrainingLog::clearMemory() {
 		trainingsArray = nullptr;
 	}
 }
+
+float Training::calculateTrainingVolume() {
+	float trainingVolume = 0.0;
+	if (exercisesArray != nullptr) {
+
+		for (int i = 0; i < exercisesCount; i++) {
+			for (int j = 0; j < exercisesArray[i].setsCount; j++) {
+				trainingVolume += (exercisesArray[i].setsArray[j].reps * exercisesArray[i].setsArray[j].weight);
+			}
+		}
+	}
+	return trainingVolume;
+}
+
+float TrainingLog::calculateVolumeOverall() {
+	float trainingVolume = 0.0;
+
+	if (trainingsArray != nullptr) {
+		for (int i = 0; i < trainingsCount; i++) {
+			trainingVolume += trainingsArray[i].calculateTrainingVolume();
+		}
+	}
+	return trainingVolume;
+}
