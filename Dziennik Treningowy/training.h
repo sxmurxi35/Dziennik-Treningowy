@@ -39,4 +39,5 @@ public:
 	void addTraining(const char* trainingDate);
 	void clearMemory();
 	float calculateVolumeOverall();
+	float calculateVolumeOverall(const char* monthYear);
 };

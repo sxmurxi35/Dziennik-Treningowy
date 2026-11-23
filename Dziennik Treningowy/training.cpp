@@ -120,3 +120,17 @@ float TrainingLog::calculateVolumeOverall() {
 	}
 	return trainingVolume;
 }
+
+float TrainingLog::calculateVolumeOverall(const char* monthYear) {
+	float trainingVolume = 0.0;
+
+	if (trainingsArray != nullptr && monthYear != nullptr) {
+		for (int i = 0; i < trainingsCount; i++) {
+			if (strstr(trainingsArray[i].trainingDate, monthYear) != nullptr) {
+				trainingVolume += trainingsArray[i].calculateTrainingVolume();
+			}
+		}
+	}
+
+	return trainingVolume;
+}
