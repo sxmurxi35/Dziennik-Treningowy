@@ -134,3 +134,33 @@ float TrainingLog::calculateVolumeOverall(const char* monthYear) {
 
 	return trainingVolume;
 }
+
+Training* TrainingLog::findTraining(int trainingId) {
+	Training* trainingPtr = nullptr;
+
+	if (trainingsArray != nullptr) {
+		for (int i = 0; i < trainingsCount; i++) {
+			if (trainingsArray[i].trainingId == trainingId) {
+				trainingPtr = &trainingsArray[i];
+				break;
+			}
+		}
+	}
+
+	return trainingPtr;
+}
+
+Training* TrainingLog::findTraining(const char* trainingDate) {
+	Training* trainingPtr = nullptr;
+
+	if (trainingsArray != nullptr && trainingDate != nullptr) {
+		for (int i = 0; i < trainingsCount; i++) {
+			if (strcmp(trainingsArray[i].trainingDate, trainingDate) == 0) {
+				trainingPtr = &trainingsArray[i];
+				break;
+			}
+		}
+	}
+
+	return trainingPtr;
+}

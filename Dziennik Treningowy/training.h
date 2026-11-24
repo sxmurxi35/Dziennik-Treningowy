@@ -15,6 +15,7 @@ struct Exercise
 	Set* setsArray;
 
 	void addSet(int reps, float weight);
+
 	void clearMemory();
 };
 
@@ -27,7 +28,9 @@ public:
 	Exercise* exercisesArray;
 
 	void addExercise(const char* exerciseName);
+
 	void clearMemory();
+
 	float calculateTrainingVolume();
 };
 
@@ -37,7 +40,12 @@ public:
 	Training* trainingsArray;
 
 	void addTraining(const char* trainingDate);
+	
 	void clearMemory();
+
 	float calculateVolumeOverall();
 	float calculateVolumeOverall(const char* monthYear);
+
+	Training* findTraining(int trainingId);
+	Training* findTraining(const char* trainingDate);
 };
